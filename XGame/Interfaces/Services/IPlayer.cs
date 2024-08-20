@@ -4,7 +4,7 @@ namespace XGame.Domain.Interfaces.Services
 {
     public interface IPlayer
     {
-        AuthenticatePlayerResponse AuthenticatePlayer (string Email, string Password);
+        AuthenticatePlayerResponse AuthenticatePlayer (AuthenticatePlayerResponse request);
 
         AddPlayerResponse AddPlayer (AddPlayerRequest request)
     }
