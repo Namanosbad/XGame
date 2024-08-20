@@ -1,14 +1,16 @@
-﻿namespace XGame.Domain.Entities
+﻿using XGame.Domain.ValueObjects;
+
+namespace XGame.Domain.Entities
 {
     public class Player
     {
         public Guid Id { get; set; }
 
-        public string Name { get; set; }
+        public Name Name { get; set; }
 
-        public string Email { get; set; }
+        public Email Email { get; set; }
 
-        public string Senha { get; set; }
+        public string Password { get; set; }
 
     }
 }
