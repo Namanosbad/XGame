@@ -1,4 +1,5 @@
-﻿using XGame.Domain.ValueObjects;
+﻿using XGame.Domain.Enums;
+using XGame.Domain.ValueObjects;
 
 namespace XGame.Domain.Entities
 {
@@ -11,6 +12,8 @@ namespace XGame.Domain.Entities
         public Email Email { get; set; }
 
         public string Password { get; set; }
+
+        public EnumStatusPlayer statusPlayer { get; set; }
 
     }
 }
