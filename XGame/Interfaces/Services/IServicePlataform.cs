@@ -3,8 +3,8 @@ using XGame.Domain.Arguments.Player;
 
 namespace XGame.Domain.Interfaces.Services
 {
-    public interface IPlataform
+    public interface IServicePlataform
     {
-        AddPlataformResponse AddPlataform (AddPlataformRequest request)
+        AddPlataformResponse AddPlataform(AddPlataformRequest request);
     }
 }

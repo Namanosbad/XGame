@@ -2,7 +2,7 @@
 
 namespace XGame.Domain.Arguments.Player
 {
-    public interface AddPlayerResponse : IResponse
+    public class AddPlayerResponse : IResponse
     {
         public Guid Id { get; set; }
 
