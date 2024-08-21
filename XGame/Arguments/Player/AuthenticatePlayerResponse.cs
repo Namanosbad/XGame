@@ -6,6 +6,7 @@ namespace XGame.Domain.Arguments.Player
     {
         public Name name { get; set; }
 
-        public Email email { get; set; }
+        public Email Email { get; set; }
+        public string? Password { get; internal set; }
     }
 }

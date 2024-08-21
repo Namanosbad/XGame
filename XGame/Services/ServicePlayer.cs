@@ -1,6 +1,7 @@
 ﻿using XGame.Domain.Arguments.Player;
 using XGame.Domain.Interfaces.Repositories;
 using XGame.Domain.Interfaces.Services;
+using XGame.Domain.ValueObjects;
 
 namespace XGame.Domain.Services
 {
@@ -26,5 +27,31 @@ namespace XGame.Domain.Services
             {
                 throw new Exception("AuthenticatePlayer is required");
             }
+
+            if (string.IsNullOrEmpty(request.Email.Address))
+            { throw new Exception("sada");
+            } 
+
+            if (IsEmail(request.Email))
+            { throw new Exception(""); 
+            }
+
+            if (string.IsNullOrEmpty(request.Password))
+            { throw new Exception("");
+            }
+
+            if (request.Password.Length < 6) {
+                throw new Exception("");
         }
+            var response = _repositoryPlayer.AuthenticatePlayer(request);
+            return response;
+        }
+
+        private bool IsEmail(Email email)
+        {
+
+            return false;
+        }
+
+    }
 }
