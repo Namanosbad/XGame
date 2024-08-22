@@ -2,9 +2,9 @@
 
 namespace XGame.Domain.Arguments.Player
 {
-    internal class AuthenticatePlayerRequest
+    public class AuthenticatePlayerRequest
     {
-        public Email email { get; set; }
+        public string email { get; set; }
 
         public string Password { get; set; }
     }

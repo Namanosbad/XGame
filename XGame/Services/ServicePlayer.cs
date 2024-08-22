@@ -9,6 +9,10 @@ namespace XGame.Domain.Services
     {
         private readonly IRepositoryPlayer _repositoryPlayer;
 
+        public ServicePlayer()
+        {
+            
+        }
         public ServicePlayer(IRepositoryPlayer repositoryPlayer)
         {
             _repositoryPlayer = repositoryPlayer;
@@ -23,31 +27,17 @@ namespace XGame.Domain.Services
 
         public AuthenticatePlayerResponse AuthenticatePlayer(AuthenticatePlayerResponse request)
         {
-            if (request == null)
-            {
-                throw new Exception("AuthenticatePlayer is required");
-            }
 
-            if (string.IsNullOrEmpty(request.Email.Address))
-            { throw new Exception("sada");
-            } 
-
-            if (IsEmail(request.Email))
-            { throw new Exception(""); 
-            }
-
-            if (string.IsNullOrEmpty(request.Password))
-            { throw new Exception("");
-            }
-
-            if (request.Password.Length < 6) {
-                throw new Exception("");
-        }
             var response = _repositoryPlayer.AuthenticatePlayer(request);
             return response;
         }
 
-        private bool IsEmail(Email email)
+        public object AuthenticatePlayer(AuthenticatePlayerRequest request)
+        {
+            throw new NotImplementedException();
+        }
+
+        private bool IsEmail(string email)
         {
 
             return false;
