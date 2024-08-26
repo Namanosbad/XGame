@@ -7,7 +7,8 @@ namespace XGame.Domain.Entities
 {
     public class Player : Notifiable
     {
-        public Player() { }
+        public Player() {
+        }
         public Player(Email email, string password)
         {
             Email = email;

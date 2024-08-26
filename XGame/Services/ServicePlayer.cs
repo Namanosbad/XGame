@@ -1,17 +1,21 @@
 ﻿using XGame.Domain.Arguments.Player;
+using XGame.Domain.Entities;
 using XGame.Domain.Interfaces.Repositories;
 using XGame.Domain.Interfaces.Services;
 using XGame.Domain.ValueObjects;
+using XGame.Domain.Enums;
+using XGame.Domain.Interfaces.Arguments;
+using prmToolkit.NotificationPattern;
 
 namespace XGame.Domain.Services
 {
-    public class ServicePlayer : IServicePlayer
+    public class ServicePlayer : Notifiable, IServicePlayer
     {
         private readonly IRepositoryPlayer _repositoryPlayer;
 
         public ServicePlayer()
         {
-            
+
         }
         public ServicePlayer(IRepositoryPlayer repositoryPlayer)
         {
@@ -20,6 +24,11 @@ namespace XGame.Domain.Services
 
         public AddPlayerResponse AddPlayer(AddPlayerRequest request)
         {
+            Player player = new Player();
+            player.Email = request.Email;
+            player.Name = request.Name;
+            player.statusPlayer = EnumStatusPlayer.InProgress;
+
             Guid id = _repositoryPlayer.AddPlayer(request);
 
             return new AddPlayerResponse() { Id = id, Message = "successful" };
@@ -27,6 +36,14 @@ namespace XGame.Domain.Services
 
         public AuthenticatePlayerResponse AuthenticatePlayer(AuthenticatePlayerResponse request)
         {
+            if (request == null)
+            {
+                throw new Exception("AuthenticatePlayerRequest is required");
+            }
+
+            var email = new Email("Paulo");
+            var player = new Player(email, "222");
+            AddNotifications(player);
 
             var response = _repositoryPlayer.AuthenticatePlayer(request);
             return response;
