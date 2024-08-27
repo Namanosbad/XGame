@@ -18,6 +18,7 @@ namespace XGame.AppConsole
 
             var response = service.AuthenticatePlayer(request);
 
+
             Console.ReadKey();
         }
     }

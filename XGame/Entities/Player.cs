@@ -15,7 +15,6 @@ namespace XGame.Domain.Entities
             Password = password;
 
             new AddNotifications<Player>(this)
-                .IfNotEmail(x => x.Email.Address, "Provide a valid email address")
                 .IfNullOrInvalidLength(X=>X.Password, 6, 32, "The password must be between 6 and 32 characters long. ");
         }
 

@@ -38,12 +38,12 @@ namespace XGame.Domain.Services
         {
             if (request == null)
             {
-                throw new Exception("AuthenticatePlayerRequest is required");
+               AddNotification("AuthenticatePlayerRequest", "AuthenticatePlayerRequest is required");
             }
 
             var email = new Email("Paulo");
             var player = new Player(email, "222");
-            AddNotifications(player);
+            AddNotifications(player, email);
 
             var response = _repositoryPlayer.AuthenticatePlayer(request);
             return response;
@@ -53,12 +53,5 @@ namespace XGame.Domain.Services
         {
             throw new NotImplementedException();
         }
-
-        private bool IsEmail(string email)
-        {
-
-            return false;
-        }
-
     }
 }
