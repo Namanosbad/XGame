@@ -9,6 +9,7 @@ using prmToolkit.NotificationPattern;
 using XGame.Domain.Resources;
 using System.ComponentModel.DataAnnotations;
 using prmToolkit.NotificationPattern.Extensions;
+using System.Net.Http.Headers;
 
 namespace XGame.Domain.Services
 {
@@ -27,10 +28,9 @@ namespace XGame.Domain.Services
 
         public AddPlayerResponse AddPlayer(AddPlayerRequest request)
         {
-            Player player = new Player();
-            player.Email = request.Email;
-            player.Name = request.Name;
-            player.statusPlayer = EnumStatusPlayer.InProgress;
+            var Name = new Name(request.FirstName, request.LastName);
+            var Email = new Email(request.Email);
+            Player player = new Player(Name,Email, request.Password);
 
             Guid id = _repositoryPlayer.AddPlayer(request);
 

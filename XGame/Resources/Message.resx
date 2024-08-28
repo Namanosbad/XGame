@@ -123,4 +123,7 @@
   <data name="X0_INVALID" xml:space="preserve">
     <value>{0} invalid</value>
   </data>
+  <data name="X0_REQUIRED_AND_MUST_CONTAIN_X1_AND_X2_CHARACTERS" xml:space="preserve">
+    <value>{0} required and must contain {1} and {2} characters</value>
+  </data>
 </root>

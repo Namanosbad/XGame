@@ -77,5 +77,14 @@ namespace XGame.Domain.Resources {
                 return ResourceManager.GetString("X0_IS_REQUIRED", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a {0} required and must contain {1} and {2} characters.
+        /// </summary>
+        internal static string X0_REQUIRED_AND_MUST_CONTAIN_X1_AND_X2_CHARACTERS {
+            get {
+                return ResourceManager.GetString("X0_REQUIRED_AND_MUST_CONTAIN_X1_AND_X2_CHARACTERS", resourceCulture);
+            }
+        }
     }
 }
