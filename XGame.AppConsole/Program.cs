@@ -14,11 +14,14 @@ namespace XGame.AppConsole
           
             AuthenticatePlayerRequest request = new AuthenticatePlayerRequest();
             Console.WriteLine("Object request");
-            request.email = "paulo";
+            request.Email = "paulo@paulo.com";
+            request.Password = "123456";
 
             var response = service.AuthenticatePlayer(request);
 
+            Console.WriteLine("Service is valid?" + service.IsValid());
 
+            service.Notifications.ToList().ForEach(x => { Console.WriteLine(x.Message); });
             Console.ReadKey();
         }
     }

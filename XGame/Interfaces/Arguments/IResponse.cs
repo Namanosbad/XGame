@@ -1,6 +1,6 @@
 ﻿namespace XGame.Domain.Interfaces.Arguments
 {
-    internal interface IResponse
+    public interface IResponse
     {
     }
 }

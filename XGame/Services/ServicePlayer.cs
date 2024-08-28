@@ -6,6 +6,9 @@ using XGame.Domain.ValueObjects;
 using XGame.Domain.Enums;
 using XGame.Domain.Interfaces.Arguments;
 using prmToolkit.NotificationPattern;
+using XGame.Domain.Resources;
+using System.ComponentModel.DataAnnotations;
+using prmToolkit.NotificationPattern.Extensions;
 
 namespace XGame.Domain.Services
 {
@@ -38,20 +41,16 @@ namespace XGame.Domain.Services
         {
             if (request == null)
             {
-               AddNotification("AuthenticatePlayerRequest", "AuthenticatePlayerRequest is required");
+               AddNotification("AuthenticatePlayerRequest", Message.X0_IS_REQUIRED.ToFormat ("AuthenticatePlayerRequest"));
             }
 
-            var email = new Email("Paulo");
-            var player = new Player(email, "222");
+            var email = new Email(request.Email);
+            var player = new Player(email, request.Password);
+
             AddNotifications(player, email);
 
             var response = _repositoryPlayer.AuthenticatePlayer(request);
             return response;
-        }
-
-        public object AuthenticatePlayer(AuthenticatePlayerRequest request)
-        {
-            throw new NotImplementedException();
         }
     }
 }
